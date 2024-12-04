@@ -1,5 +1,5 @@
-import YukkuriChat from '@/components/chat';
-import GetData from '@/components/getData';
+import Chatsupabase from '@/components/chatpage/Chatsupabase';
+import YukkuriChat from '@/components/chatpage/YukkuriChat';
 import SignIn from '@/components/sign-in';
 
 export default function Home() {
@@ -7,7 +7,7 @@ export default function Home() {
     <main>
       {/* <SignIn ServiceName="google" /> */}
       {/* <SignIn ServiceName="github" /> */}
-      <GetData />
+      <Chatsupabase />
     </main>
   );
 }

@@ -15,17 +15,19 @@ export default function From({
   text,
   setText,
   setChatArray,
+  GetImage,
 }: {
   text: Obj;
   setText: Dispatch<SetStateAction<Obj>>;
   setChatArray: Dispatch<SetStateAction<ChatsObj[]>>;
+  GetImage: string;
 }) {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const supabase = await createClient();
     const { error } = await supabase
       .from('chat')
-      .insert({ name: text.name, message: text.message });
+      .insert({ name: text.name, message: text.message, image: GetImage });
 
     if (error) {
       console.error('Error inserting chat:', error.message, error.details);
@@ -34,7 +36,12 @@ export default function From({
     }
     setChatArray((prevArray) => [
       ...prevArray,
-      { id: prevArray.length + 1, name: text.name, message: text.message },
+      {
+        id: prevArray.length + 1,
+        name: text.name,
+        message: text.message,
+        image: GetImage,
+      },
     ]);
     setText((prevText) => ({ ...prevText, message: '' }));
   };

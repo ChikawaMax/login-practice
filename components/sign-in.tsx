@@ -11,7 +11,7 @@ export default function SignIn({ ServiceName }: { ServiceName: string }) {
       }}
     >
       <Button type="submit">
-        Signin with <span className="capitalize">{ServiceName}</span>
+        <span className="capitalize">{ServiceName}</span>でログイン
       </Button>
     </form>
   );

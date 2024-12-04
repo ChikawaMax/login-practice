@@ -8,8 +8,16 @@ import ChatsAvatar from './ChatsAvatar';
 import From from './form/Form';
 import Header from './Header';
 
-export default function YukkuriChat({ chats }: { chats: ChatsObj[] }) {
-  const [text, setText] = useState({ name: 'ゲスト', message: '' });
+export default function YukkuriChat({
+  chats,
+  GetName,
+  GetImage,
+}: {
+  chats: ChatsObj[];
+  GetName: string;
+  GetImage: string;
+}) {
+  const [text, setText] = useState({ name: GetName, message: '' });
   const [chatArray, setChatArray] = useState(chats);
 
   return (
@@ -21,7 +29,7 @@ export default function YukkuriChat({ chats }: { chats: ChatsObj[] }) {
             {chatArray?.map((chat) => (
               <ChatsAvatar
                 key={chat.id}
-                imgname="228.png"
+                imgname={chat.image}
                 message={chat.message}
                 name={chat.name}
               />
@@ -30,7 +38,12 @@ export default function YukkuriChat({ chats }: { chats: ChatsObj[] }) {
         </ScrollArea>
       </CardContent>
       <CardFooter>
-        <From text={text} setText={setText} setChatArray={setChatArray} />
+        <From
+          text={text}
+          setText={setText}
+          setChatArray={setChatArray}
+          GetImage={GetImage}
+        />
       </CardFooter>
     </Card>
   );

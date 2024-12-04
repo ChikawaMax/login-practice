@@ -13,7 +13,7 @@ const ChatsAvatar = ({
     <div className="flex items-start gap-3">
       <div className="flex flex-col items-center">
         <Avatar>
-          <AvatarImage src={`image/${imgname}`} alt={imgname} />
+          <AvatarImage src={imgname} alt={imgname} />
           <AvatarFallback>🥺</AvatarFallback>
         </Avatar>
         <p className="text-xs text-muted-foreground mt-0.5">{name}</p>

@@ -1,16 +1,13 @@
 import { auth } from '@/auth';
+import Chatsupabase from './chatpage/Chatsupabase';
 
 export default async function UserAvatar() {
   const session = await auth();
 
   if (!session?.user) return null;
 
-  const GetImage = session.user.image ?? '/computer_error_bluescreen.png';
+  const GetName = session.user.name ?? '名無しちゃん';
+  const GetImage = session.user.image ?? 'image/computer_error_bluescreen.png';
 
-  return (
-    <div>
-      <h1>{session.user.name}</h1>
-      <img src={GetImage} alt="User Avatar" />
-    </div>
-  );
+  return <Chatsupabase GetName={GetName} GetImage={GetImage} />;
 }

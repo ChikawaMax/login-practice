@@ -8,7 +8,7 @@ export default function Home() {
         <SignIn ServiceName="google" />
         <SignIn ServiceName="github" />
       </div>
-      <Chatsupabase />
+      <Chatsupabase GetName="ゲスト" GetImage="image/228.png" />
     </main>
   );
 }

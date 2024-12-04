@@ -1,12 +1,13 @@
 import Chatsupabase from '@/components/chatpage/Chatsupabase';
-import YukkuriChat from '@/components/chatpage/YukkuriChat';
 import SignIn from '@/components/sign-in';
 
 export default function Home() {
   return (
     <main>
-      {/* <SignIn ServiceName="google" /> */}
-      {/* <SignIn ServiceName="github" /> */}
+      <div className="h-0">
+        <SignIn ServiceName="google" />
+        <SignIn ServiceName="github" />
+      </div>
       <Chatsupabase />
     </main>
   );
